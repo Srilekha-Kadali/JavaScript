@@ -8,6 +8,18 @@ const bodyParser = require('body-parser');
 const { ROUTE_CONSTANTS } = require('./helpers/route_constants');
 const app = express(); //initialise my web application
 
+const asyncRequest = require('async-request');
+//const { request, response } = require('express');
+const countryListUrl = "https://restcountries.eu/rest/v2/all";
+
+//helps to make calls to external api's or make asynchronous calls
+//can't have await w/o async
+//I'm making async req and I'll await till data comes.
+app.get(ROUTE_CONSTANTS.GET_COUNTRIES, async function(req, res){
+  const response = await asyncRequest(countryListUrl);
+  res.json(response);
+});
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
