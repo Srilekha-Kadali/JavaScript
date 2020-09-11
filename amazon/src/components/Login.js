@@ -2,6 +2,7 @@
 // class based components.
 
 import React,{Component} from 'react';
+import Dropdown from './Dropdown';
 
 //syntax of a class based component
 class LoginComponent extends Component{
@@ -25,12 +26,17 @@ class LoginComponent extends Component{
     }
 
     render(){
+        var names = ["Srilekha","Sandhya","Roshini"];
+        var states = ["AP", "TS"];
         return <div>
-            <h1>LOGIN</h1>
+            <br />
+            <h2>LOGIN</h2>
             <input type="text" placeholder="UserName" name="username" onChange={this.handleInputchange}/>
             <input type="text" placeholder="Password" name="password" onChange={this.handleInputchange}/>
             <h1>{this.state.username}</h1>
             <h1>{this.state.password}</h1>
+            <Dropdown list={names}/>
+            <Dropdown list={states} />
             </div>
     }
     //*/
