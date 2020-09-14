@@ -107,7 +107,7 @@ class RegisterComponent extends Component{
                 <div className="col-sm-10">
                     <select className="form-control form-control-sm"
                         name="countryList"
-                        id="countryList" onChange={this.handleChange}>                        >
+                        id="countryList" onChange={this.handleChange}>                       
                             {this.bindDataToDropdown()}
                     </select>
                 </div>

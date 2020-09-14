@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from './Cart';
 
 //props is to pass parameter from app.js
 //const myData is to locally give the value
@@ -18,6 +19,9 @@ const Header = (props)=>{
       </li>
       <li className="nav-item">
         <a className="nav-link" href="#">Link</a>
+      </li>
+      <li className="nav-item">
+        <Cart />
       </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
