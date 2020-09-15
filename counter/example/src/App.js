@@ -6,7 +6,42 @@ import DButton from './DButton';
 import Counter from './Counter';
 import TextBox from './TextBox';
 
-class App extends Component{
+// Context lets us pass a value deep into the component tree
+// without explicitly threading it through every component.
+// Create a context for the current theme (with "light" as the default).
+const ThemeContext = React.createContext('light');
+
+class App extends React.Component {
+  render() {
+    return (
+      <ThemeContext.Provider value="RED">
+        <Toolbar />
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+// A component in the middle doesn't have to
+// pass the theme down explicitly anymore.
+function Toolbar() {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+class ThemedButton extends Component {
+  // Assign a contextType to read the current theme context.
+  // React will find the closest theme Provider above and use its value.
+  // In this example, the current theme is "dark".
+  static contextType = ThemeContext;
+  render() {
+    return <button>{this.context}</button>;
+  }
+}
+
+/*class App extends Component{
   constructor(){
     super();
     //initial state of counter
@@ -33,6 +68,6 @@ class App extends Component{
       </div>
     );
   }
-}
+}*/
 
 export default App;

@@ -1,5 +1,5 @@
 // method of array which produces 
-//same o/t of aray but data can be manipulated.
+//same o/t of array but data can be manipulated.
 
 var users = [
     {
@@ -11,7 +11,7 @@ var users = [
     age:18
 }];
 //array of objects 
-//This is call Chaining of Functions: calling map from filter
+//This is called Chaining of Functions: calling map from filter
 var ageGreater20 = users.filter(function(item, index){
     return item.age>20;
 });
